@@ -1,0 +1,13 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?b?0L/QvtC00YLQstC10YDQttC00LXQvdC40LUg0YPRh9C10YLQvdC+0Lkg0LfQsNC/?=
+ =?utf-8?b?0LjRgdC4IHF3ZTE=?=
+From: django@geekshop.local
+To: qwe1@gb.local
+Date: Sat, 16 Jan 2021 22:10:48 -0000
+Message-ID: <161083504890.11228.10736886045440348918@DESKTOP-KR5HTPT>
+
+Для подтверждения перейдите по ссылке: http://localhost:8000/auth/verify/qwe1@gb.local/ec6b8b2d4eee38fec7547ed71b674172ec3c4941
+-------------------------------------------------------------------------------
