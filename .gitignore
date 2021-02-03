@@ -1,4 +1,4 @@
 .idea
 db.sqlite3
 __pycache__/
-django_project/vk.json
+django_project/vk.json.sample
