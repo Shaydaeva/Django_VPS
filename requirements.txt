@@ -3,3 +3,6 @@ Pillow==8.1.0
 social_auth_app_django==4.0.0
 requests==2.25.1
 psycopg2-binary
+django-debug-toolbar==3.2
+wheel==0.36.2
+django-debug-toolbar-template-profiler==2.0.2
