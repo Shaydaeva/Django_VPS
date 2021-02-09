@@ -103,7 +103,8 @@ def products(request, pk=None, page=1):
     
 def product(request, pk):
     title = 'продукты'
-    links_menu = ProductCategory.objects.filter(is_active=True)
+    # links_menu = ProductCategory.objects.filter(is_active=True)
+    links_menu = get_links_menu()
 
     product = get_object_or_404(Product, pk=pk)
     
