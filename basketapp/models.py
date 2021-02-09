@@ -39,7 +39,7 @@ class Basket(models.Model):
         _totalquantity = sum(list(map(lambda x: x.quantity, _items)))
         return _totalquantity
         
-    # total_quantity = property(get_total_quantity)
+    total_quantity = property(get_total_quantity)
 
     def get_total_cost(self):
         "return total cost for user"
@@ -47,7 +47,7 @@ class Basket(models.Model):
         _totalcost = sum(list(map(lambda x: x.product_cost, _items)))
         return _totalcost
         
-    # total_cost = property(get_total_cost)
+    total_cost = property(get_total_cost)
 
     # def delete(self):
     #     self.product.quantity += self.quantity
