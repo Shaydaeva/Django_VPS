@@ -29,7 +29,8 @@ class Basket(models.Model):
 
     def get_total_quantity(self):
         "return total quantity for user"
-        _items = Basket.objects.filter(user=self.user)
+        # _items = Basket.objects.filter(user=self.user)
+        _items = Basket.get_items(user=self.user)
         _totalquantity = sum(list(map(lambda x: x.quantity, _items)))
         return _totalquantity
         
@@ -37,7 +38,8 @@ class Basket(models.Model):
 
     def get_total_cost(self):
         "return total cost for user"
-        _items = Basket.objects.filter(user=self.user)
+        # _items = Basket.objects.filter(user=self.user)
+        _items = Basket.get_items(user=self.user)
         _totalcost = sum(list(map(lambda x: x.product_cost, _items)))
         return _totalcost
         
@@ -51,3 +53,7 @@ class Basket(models.Model):
     @staticmethod
     def get_item(pk):
         return Basket.objects.filter(pk=pk).first()
+
+    @staticmethod
+    def get_items(user):
+        return Basket.objects.filter(user=user).order_by('product__category').select_related()
