@@ -32,9 +32,7 @@ class OrderCreate(CreateView):
         if self.request.POST:
             formset = OrderFormSet(self.request.POST)
         else:
-            basket_items = Basket.objects.filter(user=self.request.user)
-            # количество дублей уменьшилось, но время немного увеличилось
-            # basket_items = Basket.get_items(user=self.request.user)
+            basket_items = Basket.get_items(user=self.request.user)
 
             if basket_items.exists():
                 OrderFormSet = inlineformset_factory(Order, OrderItem, form=OrderItemForm, extra=basket_items.count())
