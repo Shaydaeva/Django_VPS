@@ -20,6 +20,18 @@ def get_links_menu():
         return ProductCategory.objects.filter(is_active=True)
 
 
+def get_category(pk):
+    if settings.LOW_CACHE:
+        key = f'category_{pk}'
+        category = cache.get(key)
+        if category is None:
+            category = ProductCategory.objects.get(pk=pk)
+            cache.set(key, category)
+        return category
+    else:
+        return ProductCategory.objects.get(pk=pk)
+
+
 JSON_PATH = 'mainapp/json'
 
 
@@ -67,7 +79,7 @@ def products(request, pk=None, page=1):
             # products = Product.objects.filter(is_active=True, category__is_active=True).order_by('price')
             products = Product.objects.filter(is_active=True, category__is_active=True).select_related('category').order_by('price')
         else:
-            category = get_object_or_404(ProductCategory, pk=pk)
+            category = get_category(pk)
             # products = Product.objects.filter(category__pk=pk, is_active=True, category__is_active=True).order_by('price')
             products = Product.objects.filter(category__pk=pk, is_active=True, category__is_active=True).select_related('category').order_by('price')
 
