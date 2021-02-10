@@ -6,6 +6,7 @@ from basketapp.models import Basket
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.conf import settings
 from django.core.cache import cache
+from django.views.decorators.cache import cache_page
 
 
 def get_links_menu():
@@ -63,8 +64,9 @@ def main(request):
     }
     
     return render(request, 'mainapp/index.html', content)
-    
 
+    
+@cache_page(3600)
 def products(request, pk=None, page=1):   
     title = 'продукты'
     # links_menu = ProductCategory.objects.filter(is_active=True)
