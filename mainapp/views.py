@@ -65,7 +65,7 @@ def main(request):
     
     return render(request, 'mainapp/index.html', content)
 
-    
+
 @cache_page(3600)
 def products(request, pk=None, page=1):   
     title = 'продукты'
