@@ -23,4 +23,4 @@ class TestMainappTestCase(TestCase):
     def test_mainapp_pages(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
-        
+
