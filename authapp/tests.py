@@ -54,7 +54,7 @@ class TestUserAuthTestCase(TestCase):
             'last_name': 'Django2'
         }
 
-        response = self.client.post('/auth/register', data=new_user_data)
+        response = self.client.post('/auth/register/', data=new_user_data)
         self.assertEqual(response.status_code, 302)
 
         new_user = ShopUser.objects.get(username='django2')
