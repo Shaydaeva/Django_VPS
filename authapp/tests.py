@@ -11,5 +11,5 @@ class TestUserAuthTestCase(TestCase):
     def test_user_login(self):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertTrue(response.context['user'].is_anonimous)
+        self.assertTrue(response.context['user'].is_anonymous)
         self.assertNotContains(response, 'Пользователь')
