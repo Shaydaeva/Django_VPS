@@ -27,3 +27,7 @@ class TestUserAuthTestCase(TestCase):
         response = self.client.get('/')
         self.assertFalse(response.context['user'].is_anonymous)
         self.assertContains(response, 'Пользователь')
+
+    def test_basket_login_redirect(self):
+        response = self.client.get('/basket/')
+        self.assertEqual(response.url, '/auth/login/?next=/basket')
