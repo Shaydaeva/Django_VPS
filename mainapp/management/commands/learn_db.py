@@ -70,4 +70,4 @@ class Command(BaseCommand):
             print(f'{order_item.action_order:2}: заказ №{order_item.pk:3}:\
                    {order_item.product.name:15}: скидка\
                    {abs(order_item.total_price):6.2f} руб. | \
-                   {order_item.order.updated - order_item.order.created}')
+                   {order_item.order.updated_at - order_item.order.created_at}')
